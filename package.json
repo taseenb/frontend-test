@@ -1,0 +1,67 @@
+{
+  "name": "frontend-test",
+  "version": "1.0.0",
+  "main": "server/index.js",
+  "repository": "https://github.com/taseenb/frontend-test.git",
+  "author": "<esteban.almiron@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "npm run build && node server/index.js",
+    "build": "NODE_ENV=production webpack",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:client": "NODE_ENV=development webpack-dev-server",
+    "dev:server": "DEBUG=server:* nodemon server/index.js"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "jest": "^26.2.2",
+    "lodash": "^4.17.19",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "reselect": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.0",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "concurrently": "^5.2.0",
+    "css-loader": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "nodemon": "^2.0.4",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.2",
+    "standard": "^14.3.4",
+    "style-loader": "^1.2.1",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "standard": {
+    "ignore": [
+      "./public/**",
+      "./dist/**"
+    ],
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true,
+      "commonjs": true
+    },
+    "globals": []
+  }
+}
