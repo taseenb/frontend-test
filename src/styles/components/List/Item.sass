@@ -1,0 +1,62 @@
+&-item
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+
+  .image,
+  .name,
+  .stars,
+  .details
+    margin-bottom: 0.5rem
+
+  .image
+    background-size: cover
+    padding-bottom: 75% // 4/3 ratio
+    display: block
+    text-decoration: none
+
+  .name
+    display: block
+    font-size: 1.25rem // 20px
+    line-height: 1.75rem // 28px
+    letter-spacing: 1px
+    color: $black
+    text-decoration: none
+
+  .details
+    display: flex
+    justify-content: space-between
+    padding-top: 1rem
+    padding-bottom: 0.5rem
+
+    .cat-price,
+    .status
+      text-transform: uppercase
+      font-size: 0.75rem // 12px
+      color: $light-gray
+
+    .cat-price
+      max-width: 66%
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+
+    @import ./Item/Status
+
+  .load-more
+    display: block
+    background-color: $dark-blue
+    border: none
+    text-transform: uppercase
+    text-decoration: none
+    color: white
+    font-size: 0.875rem
+    line-height: 3rem
+    height: 3rem
+    letter-spacing: 1px
+    text-align: center
+    width: 100%
+    cursor: pointer
+
+    &:focus
+      outline: none
