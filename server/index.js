@@ -6,17 +6,13 @@ const apiRouter = require('./api-router')
 
 const app = express()
 
-// Serve static files
-app.use(express.static(path.resolve(__dirname, '../dist')))
-
 // Serve API (Yelp API proxy)
 app.use('/api', apiRouter)
 
-// Catch 404
-// app.use('*', function (req, res, next) {
-//   res.status(404)
-//   res.sendFile(path.resolve(__dirname, '404.html'))
-// })
+// Serve static files
+app.use(express.static(path.resolve(__dirname, '../dist')))
+
+// Note: routes (including 404) are managed by React Router in the client
 
 app.listen(process.env.PORT || config.port, () =>
   console.log(`Listening on port ${process.env.PORT || config.port}`)
