@@ -23,6 +23,7 @@
     "express": "^4.17.1",
     "jest": "^26.2.2",
     "lodash": "^4.17.19",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
