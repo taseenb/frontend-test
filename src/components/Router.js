@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import Detail from './Detail'
 import List from './List'
-import NotFound from './NotFound'
+import NotFound from './shared/NotFound'
 
 export default function Router () {
   return (
