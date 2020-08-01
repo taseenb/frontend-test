@@ -24,11 +24,12 @@ export default function Item ({
   return (
     <div className='list-item'>
       <div className='inner'>
-        <Link
-          to={`/restaurant/${id}`}
-          className='image'
-          style={{ backgroundImage: `url(${imageUrl})` }}
-        />
+        <Link to={`/restaurant/${id}`} className='image-wrapper'>
+          <span
+            className='image'
+            style={{ backgroundImage: `url(${imageUrl})` }}
+          />
+        </Link>
 
         <Link to={`/restaurant/${id}`} className='name'>
           {name}
