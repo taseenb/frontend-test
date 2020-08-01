@@ -1,4 +1,5 @@
 &-filters
+  display: flex
   margin: 1rem 0
   padding: 1rem #{$marginX * 0.5}
   border-top: 1px solid $disabledElementColor
@@ -6,3 +7,22 @@
 
   @media (min-width: $md)
     padding: 1rem $marginX
+
+  @import ./Filters/Category
+  @import ./Filters/Price
+  @import ./Filters/Status
+
+  .main-label
+    font-size: 1rem
+    line-height: 4rem
+    margin-right: 1.5rem
+
+  .filter
+    margin: 1rem
+
+    .label
+      font-size: 1rem
+      color: $dark-blue
+      display: inline-flex
+      vertical-align: middle
+      padding: 0.5rem

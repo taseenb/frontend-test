@@ -1,0 +1,94 @@
+.custom-select
+  position: relative
+  display: flex
+  flex-direction: column
+  width: 120px
+
+  &.open
+    .custom-options
+      opacity: 1
+      visibility: visible
+      pointer-events: all
+
+  &-wrapper
+    position: relative
+    user-select: none
+    width: 100%
+
+  &-trigger
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: space-between
+    font-size: 1rem
+    color: $dark-blue
+    height: 2rem
+    line-height: 2rem
+    cursor: pointer
+    border-bottom: 1px solid $disabledTextColor
+    width: 100%
+
+  .custom-options
+    pointer-events: none
+    position: absolute
+    display: block
+    top: 100%
+    left: 0
+    right: 0
+    border: 1px solid $disabledTextColor
+    border-top: 0
+    background: white
+    transition: all 0.4s
+    opacity: 0
+    visibility: hidden
+    z-index: 2
+
+  .custom-option
+    position: relative
+    display: block
+    padding: 0.75rem 1.5rem
+    font-size: 1rem
+    color: $dark-gray
+    cursor: pointer
+    transition: all 0.4s
+
+    &:hover
+      background-color: $placeholderColor
+
+    &.selected
+      background-color: $green
+
+  .arrow
+    position: relative
+    height: 0.5rem
+    width: 0.5rem
+
+    &::before,
+    &::after
+      content: ""
+      position: absolute
+      bottom: 0
+      width: 0.05rem
+      height: 100%
+      transition: all 0.4s
+      will-change: transform
+
+    &::before
+      left: -0.16rem
+      transform: rotate(45deg)
+      background-color: $arrows-gray
+
+    &::after
+      left: 0.16rem
+      transform: rotate(-45deg)
+      background-color: $arrows-gray
+
+  &.open
+    .arrow
+      &::before
+        left: 0rem
+        transform: rotate(-45deg) scale(1.2)
+
+      &::after
+        left: 0rem
+        transform: rotate(45deg) scale(1.2)
