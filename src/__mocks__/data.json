@@ -109,7 +109,7 @@
           "title": "Burgers"
         }
       ],
-      "rating": 4.5,
+      "rating": 1,
       "coordinates": {
         "latitude": 36.0701464765449,
         "longitude": -115.173856267786
@@ -154,7 +154,7 @@
           "title": "Asian Fusion"
         }
       ],
-      "rating": 4,
+      "rating": 2.5,
       "coordinates": {
         "latitude": 36.109929,
         "longitude": -115.175375
@@ -203,7 +203,7 @@
           "title": "Breakfast & Brunch"
         }
       ],
-      "rating": 4.5,
+      "rating": 3,
       "coordinates": {
         "latitude": 36.1080857621234,
         "longitude": -115.17111089259
@@ -340,7 +340,7 @@
           "title": "Breakfast & Brunch"
         }
       ],
-      "rating": 4.5,
+      "rating": 1.5,
       "coordinates": {
         "latitude": 36.0758866,
         "longitude": -115.1814849
@@ -372,7 +372,7 @@
       "alias": "gangnam-asian-bbq-dining-las-vegas-2",
       "name": "Gangnam Asian BBQ Dining",
       "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/SrM8q-cGpbX5RJUYiEFFrQ/o.jpg",
-      "is_closed": false,
+      "is_closed": true,
       "url": "https://www.yelp.com/biz/gangnam-asian-bbq-dining-las-vegas-2?adjust_creative=YMN120wde4DAVIUTOq2eyA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YMN120wde4DAVIUTOq2eyA",
       "review_count": 3956,
       "categories": [
@@ -472,7 +472,7 @@
       "alias": "firefly-tapas-kitchen-bar-southwest-las-vegas-2",
       "name": "Firefly* Tapas Kitchen + Bar - Southwest",
       "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/kjBmBvs6QKqs9xnALvwphg/o.jpg",
-      "is_closed": false,
+      "is_closed": true,
       "url": "https://www.yelp.com/biz/firefly-tapas-kitchen-bar-southwest-las-vegas-2?adjust_creative=YMN120wde4DAVIUTOq2eyA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YMN120wde4DAVIUTOq2eyA",
       "review_count": 214,
       "categories": [
@@ -527,7 +527,7 @@
           "title": "Buffets"
         }
       ],
-      "rating": 4,
+      "rating": 2.5,
       "coordinates": {
         "latitude": 36.1159291,
         "longitude": -115.1762385
@@ -642,7 +642,7 @@
       "alias": "fukuburger-buffalo-las-vegas",
       "name": "Fukuburger Buffalo",
       "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/8hdvCvZ_QskTTtZq9jWg-w/o.jpg",
-      "is_closed": false,
+      "is_closed": true,
       "url": "https://www.yelp.com/biz/fukuburger-buffalo-las-vegas?adjust_creative=YMN120wde4DAVIUTOq2eyA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=YMN120wde4DAVIUTOq2eyA",
       "review_count": 287,
       "categories": [
