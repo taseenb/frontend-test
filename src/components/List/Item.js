@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import Stars from '../shared/Stars'
-import Status from './Item/Status'
+import Status from '../shared/Status'
+import CatPrice from '../shared/CatPrice'
 
 export default function Item ({
   id,
@@ -40,9 +41,8 @@ export default function Item ({
         </div>
 
         <div className='details'>
-          <div className='cat-price'>
-            {categories[0].title} &middot; {price}
-          </div>
+          <CatPrice category={categories[0].title} price={price} />
+          
 
           <Status isClosed={isClosed} />
         </div>

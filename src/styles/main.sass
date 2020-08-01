@@ -1,6 +1,7 @@
 @import ./vars
 @import ./reset
 
+
 html
   font-size: $defaultFontSize * 0.75
 
@@ -12,11 +13,19 @@ body
   font-family: $defaultFontFamily
   color: $defaultFontColor
 
+// Layout helpers
+@import ./layout/row
+
 // Components tree
 @import ./components/App
 @import ./components/List
+@import ./components/Detail
 
 // Shared components
+@import ./components/shared/Hero
 @import ./components/shared/Stars
 @import ./components/shared/Radio
 @import ./components/shared/Select
+@import ./components/shared/Status
+@import ./components/shared/CatPrice
+@import ./components/shared/NotFound

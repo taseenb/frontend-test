@@ -1,0 +1,30 @@
+.review
+
+  margin-bottom: 3rem
+  padding-bottom: 3rem
+  border-bottom: 1px solid $disabledElementColor
+
+  @media (min-width: $md)
+    display: flex
+    justify-content: space-between
+
+  &-user
+    width: 100%
+
+    @media (min-width: $md)
+      width: 40%
+
+    @media (min-width: $lg)
+      width: 25%
+
+  &-content
+    width: 100%
+
+    @media (min-width: $md)
+      width: 60%
+
+    @media (min-width: $lg)
+      width: 75%
+
+  @import ./Review/User
+  @import ./Review/Content

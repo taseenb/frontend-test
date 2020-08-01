@@ -7,7 +7,7 @@ export default function Results () {
   const items = data.businesses
 
   return (
-    <div className='list-results'>
+    <div className='list-results row'>
       <h2>All Restaurants</h2>
 
       <div className='list-results-grid'>

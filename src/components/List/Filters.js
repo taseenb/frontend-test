@@ -8,7 +8,7 @@ const isClosed = false
 
 export default function Filters () {
   return (
-    <div className='list-filters'>
+    <div className='list-filters row flex with-separator'>
       <div className='main-label'>Filter by:</div>
       <Status isClosed={isClosed} />
       <Price />
