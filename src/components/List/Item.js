@@ -22,17 +22,19 @@ export default function Item ({
   display_phone: displayPhone,
   distance
 }) {
+  const to = `/restaurant/${id}`
+
   return (
     <div className='list-item'>
       <div className='inner'>
-        <Link to={`/restaurant/${id}`} className='image-wrapper'>
+        <Link to={to} className='image-wrapper'>
           <span
             className='image'
             style={{ backgroundImage: `url(${imageUrl})` }}
           />
         </Link>
 
-        <Link to={`/restaurant/${id}`} className='name'>
+        <Link to={to} className='name'>
           {name}
         </Link>
 
@@ -42,13 +44,12 @@ export default function Item ({
 
         <div className='details'>
           <CatPrice category={categories[0].title} price={price} />
-          
 
           <Status isClosed={isClosed} />
         </div>
       </div>
 
-      <Link to={`/restaurant/${id}`} className='load-more'>
+      <Link to={to} className='load-more'>
         Load more
       </Link>
     </div>
