@@ -3,16 +3,15 @@ import React, { memo } from 'react'
 function getStar (rating, i) {
   if (rating - i === 0.5) {
     return '◐'
-  } else if (rating - i >= 1) {
-    return '●'
   }
-  return '○'
+
+  return rating - i >= 1 ? '●' : '○'
 }
 
 function Stars ({ rating }) {
   let str = ''
 
-  for (let i = 0; i < rating; i++) {
+  for (let i = 0; i < 5; i++) {
     str += getStar(rating, i)
   }
 
