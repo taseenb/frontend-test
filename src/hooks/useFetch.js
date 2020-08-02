@@ -3,20 +3,20 @@ import axios from 'axios'
 
 const cache = {}
 
-const apiState = {
+const API_STATE = {
   LOADING: 'LOADING',
   SUCCESS: 'SUCCESS',
   ERROR: 'ERROR'
 }
 
-const initialState = {
-  state: apiState.LOADING,
+const INITIAL_STATE = {
+  state: API_STATE.LOADING,
   error: null,
   data: null
 }
 
 function useFetch (url) {
-  const [response, setResponse] = useState(initialState)
+  const [response, setResponse] = useState(INITIAL_STATE)
 
   useEffect(() => {
     if (!url) return
@@ -25,16 +25,13 @@ function useFetch (url) {
     let source = null
 
     if (cache[url]) {
-      setResponse({
-        state: apiState.SUCCESS,
-        error: null,
-        data: cache[url]
-      })
+      // Return cached response if available
+      setResponse(cache[url])
     } else {
       // Create cancel token source
       source = axios.CancelToken.source()
 
-      setResponse(initialState)
+      setResponse(INITIAL_STATE)
 
       axios
         .get(url, {
@@ -42,19 +39,21 @@ function useFetch (url) {
           cancelToken: source.token
         })
         .then(res => {
-          // Cache data
-          cache[url] = res.data
-
-          setResponse({
-            state: apiState.SUCCESS,
+          const resObj = {
+            state: API_STATE.SUCCESS,
             error: null,
             data: res.data
-          })
+          }
+
+          // Cache successful reponse
+          cache[url] = resObj
+
+          setResponse(resObj)
         })
         .catch(error => {
           if (!axios.isCancel(error)) {
             setResponse({
-              state: apiState.ERROR,
+              state: API_STATE.ERROR,
               error: error.response ? error.response : true,
               data: null
             })
