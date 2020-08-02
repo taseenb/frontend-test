@@ -1,0 +1,105 @@
+{
+  "id": "faPVqws-x-5k2CQKDNtHxw",
+  "alias": "yardbird-southern-table-and-bar-las-vegas-2",
+  "name": "Yardbird Southern Table & Bar",
+  "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/_zXRdYX4r1OBfF86xKMbDw/o.jpg",
+  "is_claimed": true,
+  "is_closed": false,
+  "url": "https://www.yelp.com/biz/yardbird-southern-table-and-bar-las-vegas-2?adjust_creative=W_-WXhZPMHO0dvgGeb1Ggw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=W_-WXhZPMHO0dvgGeb1Ggw",
+  "phone": "+17022976541",
+  "display_phone": "(702) 297-6541",
+  "review_count": 5115,
+  "categories": [
+    {
+      "alias": "southern",
+      "title": "Southern"
+    },
+    {
+      "alias": "newamerican",
+      "title": "American (New)"
+    },
+    {
+      "alias": "cocktailbars",
+      "title": "Cocktail Bars"
+    }
+  ],
+  "rating": 4.5,
+  "location": {
+    "address1": "3355 Las Vegas Blvd S",
+    "address2": "",
+    "address3": "",
+    "city": "Las Vegas",
+    "zip_code": "89109",
+    "country": "US",
+    "state": "NV",
+    "display_address": [
+      "3355 Las Vegas Blvd S",
+      "Las Vegas, NV 89109"
+    ],
+    "cross_streets": ""
+  },
+  "coordinates": {
+    "latitude": 36.1223280184553,
+    "longitude": -115.170111842838
+  },
+  "photos": [
+    "https://s3-media4.fl.yelpcdn.com/bphoto/_zXRdYX4r1OBfF86xKMbDw/o.jpg",
+    "https://s3-media4.fl.yelpcdn.com/bphoto/NqyLx5RQrtFClZZYSWwK7w/o.jpg",
+    "https://s3-media2.fl.yelpcdn.com/bphoto/2dIPubUVzbpLs5892pFuSg/o.jpg"
+  ],
+  "price": "$$",
+  "hours": [
+    {
+      "open": [
+        {
+          "is_overnight": false,
+          "start": "1100",
+          "end": "2300",
+          "day": 0
+        },
+        {
+          "is_overnight": false,
+          "start": "1100",
+          "end": "2300",
+          "day": 1
+        },
+        {
+          "is_overnight": false,
+          "start": "1100",
+          "end": "2300",
+          "day": 2
+        },
+        {
+          "is_overnight": false,
+          "start": "1100",
+          "end": "2300",
+          "day": 3
+        },
+        {
+          "is_overnight": false,
+          "start": "1100",
+          "end": "2300",
+          "day": 4
+        },
+        {
+          "is_overnight": false,
+          "start": "0930",
+          "end": "2300",
+          "day": 5
+        },
+        {
+          "is_overnight": false,
+          "start": "0930",
+          "end": "2300",
+          "day": 6
+        }
+      ],
+      "hours_type": "REGULAR",
+      "is_open_now": true
+    }
+  ],
+  "transactions": [
+    "delivery",
+    "pickup"
+  ]
+}

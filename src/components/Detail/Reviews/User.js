@@ -13,7 +13,7 @@ export default function User ({
     <div className='review-user'>
       <div
         className='img avatar'
-        style={{ backgroundImage: `url(${imageUrl})` }}
+        style={{ backgroundImage: imageUrl ? `url(${imageUrl})` : null }}
       />
 
       <div className='review-user-details'>

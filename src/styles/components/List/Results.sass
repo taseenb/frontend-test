@@ -9,5 +9,9 @@
 
   &-grid
     display: grid
-    grid-template-columns: repeat(auto-fit, minmax($min-col-width, 1fr))
+    grid-template-columns: repeat(auto-fill, minmax($min-col-width, 1fr))
     grid-gap: $grid-gap
+
+  &-nothing
+    padding: 3rem 0
+    text-align: center

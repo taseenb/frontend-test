@@ -1,35 +1,65 @@
-import React, { memo } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
-import NotFound from './shared/NotFound'
+import useYelpDetails from '../hooks/useYelpDetails'
 
-import Visual from './Detail/Visual'
+import Visuals from './Detail/Visuals'
 import Reviews from './Detail/Reviews'
-
 import Hero from './shared/Hero'
+import HttpError from './shared/HttpError'
+import Loading from './shared/Loading'
 
-import data from '../__mocks__/data.json'
+function Detail ({ location, match }) {
+  const { id } = match.params
+  const { state, error = {}, data } = useYelpDetails(id)
 
-const items = data.businesses
-
-function Detail ({ match }) {
-  const { restaurantId } = match.params
-
-  const item = items.find(item => item.id === restaurantId)
-
-  if (!item) {
-    return <NotFound />
+  if (state === 'LOADING') {
+    return <Loading fullscreen />
   }
+
+  if (state === 'ERROR') {
+    return (
+      <HttpError fullscreen status={error.status} message={error.statusText} />
+    )
+  }
+
+  const {
+    // id,
+    // alias,
+    // url,
+    name,
+    categories,
+    rating,
+    price,
+    is_closed: isClosed,
+    photos,
+    coordinates,
+    location: restaurantLocation,
+    review_count: reviewCount
+  } = data
 
   return (
     <div className='detail'>
-      <Hero headline={item.name} {...item} />
-      <Visual />
-      <Reviews />
+      <Hero
+        headline={name}
+        rating={rating}
+        category={categories[0].title}
+        price={price}
+        isClosed={isClosed}
+      />
+      <Visuals
+        photos={photos}
+        location={restaurantLocation}
+        coordinates={coordinates}
+      />
+      <Reviews id={id} reviewCount={reviewCount} />
     </div>
   )
 }
 
-Detail.propTypes = {}
+Detail.propTypes = {
+  location: PropTypes.object,
+  match: PropTypes.object
+}
 
-export default memo(Detail)
+export default Detail

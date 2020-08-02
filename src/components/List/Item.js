@@ -49,8 +49,8 @@ export default function Item ({
         </div>
       </div>
 
-      <Link to={to} className='load-more'>
-        Load more
+      <Link to={to} className='learn-more btn'>
+        Learn more
       </Link>
     </div>
   )
