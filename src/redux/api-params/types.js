@@ -1,4 +1,4 @@
 export const ApiParamsActionTypes = {
-  RESET: 'RESET',
-  UPDATE: 'UPDATE'
+  RESET_API_PARAMS: 'RESET_API_PARAMS',
+  UPDATE_API_PARAMS: 'UPDATE_API_PARAMS'
 }

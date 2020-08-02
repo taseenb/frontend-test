@@ -10,16 +10,15 @@ export const INITIAL_STATE = Object.freeze({
 
 const apiParamsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case ApiParamsActionTypes.UPDATE:
+    case ApiParamsActionTypes.UPDATE_API_PARAMS:
+      console.log(state)
       return {
         ...state,
         ...action.payload
       }
 
-    case ApiParamsActionTypes.RESET:
-      return {
-        ...INITIAL_STATE
-      }
+    case ApiParamsActionTypes.RESET_API_PARAMS:
+      return INITIAL_STATE
 
     default:
       return state

@@ -7,16 +7,15 @@ export const INITIAL_STATE = Object.freeze({
 
 const clientFiltersReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case ClientFiltersActionTypes.UPDATE:
+    case ClientFiltersActionTypes.UPDATE_CLIENT_FILTERS:
+      console.log(state)
       return {
         ...state,
         ...action.payload
       }
 
-    case ClientFiltersActionTypes.RESET:
-      return {
-        ...INITIAL_STATE
-      }
+    case ClientFiltersActionTypes.RESET_CLIENT_FILTERS:
+      return INITIAL_STATE
 
     default:
       return state
