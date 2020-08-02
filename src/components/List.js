@@ -7,25 +7,26 @@ import Filters from './List/Filters'
 import Results from './List/Results'
 import LoadMore from './List/LoadMore'
 
+// Yelp API search hook
 import useYelpSearch from '../hooks/useYelpSearch'
 
-const defaultApiParams = Object.freeze({
-  location: 'Las Vegas'.replace(' ', '+'),
-  term: 'restaurants',
-  offset: 0,
-  limit: 20, // default 20, max 50
-  categories: ''
-})
-
-const defaultClientFilter = Object.freeze({
-  openNow: false,
-  price: 0
-})
+// Store
+import { useSelector, useDispatch } from 'react-redux'
+import { selectClientFilters } from '../redux/client-filters/selectors'
+import { selectApiParams } from '../redux/api-params/selectors'
+import { updateApiParams } from '../redux/api-params/actions'
+import { selectRestaurants } from '../redux/restaurants/selectors'
+import { addItems } from '../redux/restaurants/actions'
+import { INITIAL_STATE as defaultApiParams } from '../redux/api-params/reducer'
+import { INITIAL_STATE as defaultClientFilters } from '../redux/client-filters/reducer'
 
 function List () {
-  // Filters: server API and client
-  const [apiParams, setApiParams] = useState(defaultApiParams) // API params
-  const [clientFilter, setClientFilter] = useState(defaultClientFilter) // Client filters
+  const dispatch = useDispatch()
+
+  // API and client filters
+  const apiParams = useSelector(selectApiParams)
+  const clientFilters = useSelector(selectClientFilters)
+  const items = useSelector(selectRestaurants)
 
   // Defines if there are more items available with the current
   // server side filters (based on Yelp API total value)
@@ -35,25 +36,21 @@ function List () {
   const [filtersCleared, setFiltersCleared] = useState(true)
 
   // Get resaurants data from Yelp
-  const { state, error = {}, data } = useYelpSearch(apiParams)
+  const { state: fetchState, error = {}, data } = useYelpSearch(apiParams)
 
-  // The accumulated store of items received (should go to global state)
-  const [items, setItems] = useState(null)
+  console.log(apiParams, clientFilters)
 
   /**
    * Update the items store and availability every time data from Yelp changes
    */
   useEffect(() => {
+    console.log('NEW DATA?')
     if (data) {
-      setMoreAvailable(data.businesses.length < data.total)
+      setMoreAvailable(items.length < data.total)
     }
 
     if (data && data.businesses) {
-      if (Array.isArray(items)) {
-        setItems([...items, ...data.businesses])
-      } else {
-        setItems(data.businesses)
-      }
+      dispatch(addItems(data.businesses))
     }
   }, [data])
 
@@ -64,15 +61,16 @@ function List () {
     // Ignore offset changes when checking filters!
     const cleared =
       isEqual({ ...apiParams, offset: 0 }, defaultApiParams) &&
-      isEqual(clientFilter, defaultClientFilter)
+      isEqual(clientFilters, defaultClientFilters)
+
     setFiltersCleared(cleared)
-  }, [apiParams, clientFilter])
+  }, [apiParams, clientFilters])
 
   /**
    * Load more restaurants from Yelp API
    */
   function onLoadMore () {
-    if (state === 'LOADING' || state === 'ERROR') return
+    if (fetchState === 'LOADING' || fetchState === 'ERROR') return
 
     if (items.length >= data.total) {
       console.log('No more restaurants available')
@@ -80,36 +78,7 @@ function List () {
       return
     }
 
-    setApiParams({ ...apiParams, offset: items.length })
-  }
-
-  /**
-   * Update client filters (open now, price)
-   * @param {object} newFilter New key and value
-   */
-  function onUpdateClientFilter (newFilter) {
-    setClientFilter({ ...clientFilter, ...newFilter })
-  }
-
-  /**
-   * Update API params (server filter) and reset data and offset when category changes
-   * @param {object} newParam New key and value
-   */
-  function onUpdateApiParams (newParam) {
-    if (newParam.categories !== apiParams.categories) {
-      setItems(null)
-      setApiParams({ ...apiParams, ...newParam, offset: 0 })
-    }
-  }
-
-  /**
-   * Clear all filters (both client and server)
-   */
-  function onResetFilters () {
-    if (filtersCleared) return
-
-    onUpdateApiParams({ categories: '' })
-    setClientFilter(defaultClientFilter)
+    dispatch(updateApiParams({ offset: items.length }))
   }
 
   return (
@@ -121,26 +90,23 @@ function List () {
       />
 
       <Filters
-        clientFilter={clientFilter}
-        onUpdateClientFilter={onUpdateClientFilter}
+        clientFilters={clientFilters}
         apiParams={apiParams}
-        onUpdateApiParams={onUpdateApiParams}
-        onResetFilters={onResetFilters}
         cleared={filtersCleared}
       />
 
       <Results
-        filter={clientFilter}
-        state={state}
+        clientFilters={clientFilters}
+        fetchState={fetchState}
         error={error}
         items={items}
       />
 
-      {moreAvailable && state !== 'LOADING' && state !== 'ERROR' && (
-        <LoadMore state={state} onLoadMore={onLoadMore} />
+      {moreAvailable && fetchState !== 'LOADING' && fetchState !== 'ERROR' && (
+        <LoadMore fetchState={fetchState} onLoadMore={onLoadMore} />
       )}
 
-      {state !== 'LOADING' && !moreAvailable && (
+      {fetchState !== 'LOADING' && !moreAvailable && (
         <div className='list-end'>
           That's all. Change your filters to find more.
         </div>

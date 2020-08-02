@@ -12,8 +12,8 @@ function filterPrice (price, itemPrice) {
   return !price || (typeof itemPrice === 'string' && price === itemPrice.length)
 }
 
-function Results ({ items, error, state, filter }) {
-  const { openNow, price } = filter
+function Results ({ items, error, fetchState, clientFilters }) {
+  const { openNow, price } = clientFilters
 
   const filteredItems = Array.isArray(items)
     ? items.filter(item => {
@@ -37,15 +37,15 @@ function Results ({ items, error, state, filter }) {
             <Item key={item.id} {...item} />
           ))}
         </div>
-      ) : state === 'LOADING' ? null : (
+      ) : fetchState === 'LOADING' ? null : (
         <div className='list-results-nothing'>
           No items found. Check your filters!
         </div>
       )}
 
-      {state === 'LOADING' && <LoadingAnimation show withContainer />}
+      {fetchState === 'LOADING' && <LoadingAnimation show withContainer />}
 
-      {state === 'ERROR' && (
+      {fetchState === 'ERROR' && (
         <HttpError status={error.status} message={error.statusText} />
       )}
     </div>

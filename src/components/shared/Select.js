@@ -7,7 +7,7 @@ function Select ({ triggerLabel, options, onChange, className }) {
   useEffect(() => {
     const selected = options.find(o => o.selected)
 
-    console.log(options)
+    // console.log(options)
 
     if (selected && !selected.default) {
       setSelectedLabel(selected.copy)
