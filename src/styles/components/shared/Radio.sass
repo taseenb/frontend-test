@@ -7,11 +7,15 @@
   vertical-align: middle
   box-sizing: border-box
 
-  span
+  &.checked
+    > span
+      display: block
+
+  > span
+    display: none
     border-radius: 100%
     width: 0.5rem
     height: 0.5rem
-    display: block
     background-color: $dark-blue
     margin-top: 0.2rem
     margin-left: 0.2rem

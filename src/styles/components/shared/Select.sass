@@ -46,17 +46,50 @@
   .custom-option
     position: relative
     display: block
-    padding: 0.75rem 1.5rem
+    padding: 0.25rem 1rem
     font-size: 1rem
     color: $dark-gray
     cursor: pointer
     transition: all 0.4s
+    white-space: nowrap
 
     &:hover
       background-color: $placeholderColor
 
+      .bullet
+        border-color: white
+
     &.selected
-      background-color: $green
+      .bullet
+        background-color: $dark-blue
+        border-color: $dark-blue
+
+        .svg
+          display: block
+
+    .bullet,
+    .label
+      display: inline-block
+      vertical-align: middle
+
+    .bullet
+      width: 1rem
+      height: 1rem
+      border: 1px solid $placeholderColor
+      border-radius: 100%
+      background-color: white
+
+      .svg
+        width: 1rem
+        height: 1rem
+        display: none
+        margin-top: -1px
+        margin-left: -1px
+
+        path
+          stroke: white
+
+    .label
 
   .arrow
     position: relative
