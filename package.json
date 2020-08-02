@@ -14,7 +14,8 @@
     "build": "NODE_ENV=production webpack",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:client": "NODE_ENV=development webpack-dev-server",
-    "dev:server": "DEBUG=server:* nodemon server/index.js"
+    "dev:server": "DEBUG=server:* nodemon server/index.js",
+    "kill": "sh kill.sh 8080"
   },
   "dependencies": {
     "axios": "^0.19.2",
