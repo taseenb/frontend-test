@@ -5,7 +5,7 @@ import { MemoryRouter } from 'react-router'
 
 import Router from './Router'
 import List from './List'
-import NotFound from './NotFound'
+import HttpError from './shared/HttpError'
 
 describe('Router tests', () => {
   it('redirect to 404 when page not found', () => {
@@ -16,7 +16,7 @@ describe('Router tests', () => {
     )
 
     expect(wrapper.find(List)).toHaveLength(0)
-    expect(wrapper.find(NotFound)).toHaveLength(1)
+    expect(wrapper.find(HttpError)).toHaveLength(1)
   })
 
   it('valid path does not redirect to 404', () => {
@@ -27,6 +27,6 @@ describe('Router tests', () => {
     )
 
     expect(wrapper.find(List)).toHaveLength(1)
-    expect(wrapper.find(NotFound)).toHaveLength(0)
+    expect(wrapper.find(HttpError)).toHaveLength(0)
   })
 })
