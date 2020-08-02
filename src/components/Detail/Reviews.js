@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Review from './Reviews/Review'
-import Loading from '../shared/Loading'
+import LoadingAnimation from '../shared/LoadingAnimation'
 import HttpError from '../shared/HttpError'
 import useYelpReviews from '../../hooks/useYelpReviews'
 
@@ -12,7 +12,7 @@ export default function Reviews ({ id, reviewCount }) {
     <div className='detail-reviews row'>
       <div className='detail-reviews-count'>{reviewCount} Reviews</div>
 
-      {state === 'LOADING' && <Loading />}
+      {state === 'LOADING' && <LoadingAnimation show withContainer />}
 
       {state === 'ERROR' && (
         <HttpError status={error.status} message={error.statusText} />

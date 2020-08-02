@@ -7,14 +7,14 @@ import Visuals from './Detail/Visuals'
 import Reviews from './Detail/Reviews'
 import Hero from './shared/Hero'
 import HttpError from './shared/HttpError'
-import Loading from './shared/Loading'
+import LoadingAnimation from './shared/LoadingAnimation'
 
 function Detail ({ location, match }) {
   const { id } = match.params
   const { state, error = {}, data } = useYelpDetails(id)
 
   if (state === 'LOADING') {
-    return <Loading fullscreen />
+    return <LoadingAnimation show withContainer />
   }
 
   if (state === 'ERROR') {

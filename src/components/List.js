@@ -26,7 +26,10 @@ function List () {
   // API and client filters
   const apiParams = useSelector(selectApiParams)
   const clientFilters = useSelector(selectClientFilters)
-  const items = useSelector(selectRestaurants)
+
+  // Get restaurants
+  const { categories } = apiParams
+  const items = useSelector(selectRestaurants(categories || 'all'))
 
   // Defines if there are more items available with the current
   // server side filters (based on Yelp API total value)
@@ -38,7 +41,7 @@ function List () {
   // Get resaurants data from Yelp
   const { state: fetchState, error = {}, data } = useYelpSearch(apiParams)
 
-  console.log(apiParams, clientFilters)
+  // console.log(apiParams, clientFilters, items)
 
   /**
    * Update the items store and availability every time data from Yelp changes
@@ -50,7 +53,8 @@ function List () {
     }
 
     if (data && data.businesses) {
-      dispatch(addItems(data.businesses))
+      const { offset, categories, limit } = apiParams
+      dispatch(addItems({ items: data.businesses, offset, limit, categories }))
     }
   }, [data])
 

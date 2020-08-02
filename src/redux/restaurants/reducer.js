@@ -1,17 +1,18 @@
 import { RestaurantsActionTypes } from './types'
+import { addItems } from './utils'
 
-const INITIAL_STATE = []
+/**
+ * Every Yelp category fetched will be stored in a different key
+ * The category "all" stores the default results (all categories)
+ */
+const INITIAL_STATE = {
+  all: []
+}
 
 const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case RestaurantsActionTypes.ADD_ITEMS:
-      return [...state, ...action.payload]
-
-    case RestaurantsActionTypes.REPLACE_ITEMS:
-      return action.payload
-
-    case RestaurantsActionTypes.RESET_ITEMS:
-      return INITIAL_STATE
+      return addItems(state, action.payload)
 
     default:
       return state
