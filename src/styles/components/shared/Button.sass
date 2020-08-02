@@ -1,0 +1,36 @@
+.btn
+  text-transform: uppercase
+  text-decoration: none
+  color: white
+  font-size: 0.875rem
+  line-height: 3rem
+  height: 3rem
+  letter-spacing: 1px
+  text-align: center
+  width: 100%
+  cursor: pointer
+  border: 1px solid $dark-blue
+  transition: background-color 0.4s
+  user-select: none
+
+  &:hover
+    background-color: white
+    color: $dark-blue
+
+  &.white
+    color: $dark-blue
+    background-color: white
+
+    &:hover
+      color: white
+      background-color: $dark-blue
+
+  &:focus
+    outline: none
+
+  &.disabled,
+  &.disabled:hover
+    background-color: $disabledElementColor
+    border-color: $disabledElementColor
+    color: $disabledTextColor
+    cursor: default

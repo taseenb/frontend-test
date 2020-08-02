@@ -1,0 +1,46 @@
+.loading-animation
+  display: inline-flex
+  vertical-align: middle
+  line-height: 0
+  opacity: 0
+  transition-property: opacity
+  transition-duration: 0.4s
+
+  &-container
+    padding: 5rem
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 42px
+    line-height: 38px
+    vertical-align: middle
+
+  &.show
+    opacity: 1
+
+  .svg
+    display: block
+    overflow: visible
+    width: 2rem
+    height: 2rem
+
+    circle
+      stroke-width: 0.5rem
+
+      &.foreground
+        stroke: $dark-blue
+        animation-name: spin
+        animation-duration: 1s
+        animation-iteration-count: infinite
+        animation-timing-function: linear
+        transform-origin: center center
+
+      &.background
+        stroke: $disabledElementColor
+
+@keyframes spin
+  from
+    transform: rotate(0deg)
+
+  to
+    transform: rotate(360deg)
