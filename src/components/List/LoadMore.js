@@ -2,14 +2,14 @@ import React from 'react'
 
 import Button from '../shared/Button'
 
-function LoadMore ({ fetchState, onLoadMore }) {
+function LoadMore ({ loading, onLoadMore }) {
   return (
-    <div className='load-more-wrapper'>
+    <div className='load-more-wrapper row flex'>
       <Button
-        className={`load-more white ${fetchState === 'LOADING' ? 'disabled' : ''}`}
+        className={`load-more white ${loading ? 'disabled' : ''}`}
         onClick={onLoadMore}
       >
-        {fetchState === 'LOADING' ? 'Loading' : 'Load more'}
+        {loading ? 'Loading' : 'Load more'}
       </Button>
     </div>
   )

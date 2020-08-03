@@ -55,7 +55,7 @@ const LoadingAnimation = ({
 
   return withContainer || fullscreen ? (
     <div
-      className={`loading-animation-container ${
+      className={`loading-animation-container row flex ${
         fullscreen ? 'fullscreen' : ''
       }`}
     >

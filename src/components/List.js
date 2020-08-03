@@ -106,7 +106,7 @@ function List () {
       />
 
       {moreAvailable && fetchState !== 'LOADING' && fetchState !== 'ERROR' && (
-        <LoadMore fetchState={fetchState} onLoadMore={onLoadMore} />
+        <LoadMore loading={fetchState === 'LOADING'} onLoadMore={onLoadMore} />
       )}
 
       {fetchState !== 'LOADING' && !moreAvailable && (
