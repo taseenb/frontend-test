@@ -12,6 +12,7 @@ const cleanupPlugin = new CleanWebpackPlugin()
 const htmlPlugin = new HtmlWebpackPlugin({
   template: './src/static/index.html'
 })
+const miniCssPlugin = new MiniCssExtractPlugin()
 
 // Dev server: proxy local api server + HMR
 const devServer = {
@@ -45,7 +46,7 @@ module.exports = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          isProd ? MiniCssExtractPlugin.loader : 'style-loader',
+          isProd ? { loader: MiniCssExtractPlugin.loader } : 'style-loader',
           'css-loader',
           'sass-loader'
         ]
@@ -60,5 +61,5 @@ module.exports = {
     extensions: ['*', '.js', '.jsx']
   },
   devServer: isProd ? undefined : devServer,
-  plugins: [cleanupPlugin, htmlPlugin]
+  plugins: [cleanupPlugin, htmlPlugin, miniCssPlugin]
 }
