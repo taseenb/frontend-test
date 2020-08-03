@@ -114,12 +114,6 @@ function List () {
       {moreAvailable && fetchState !== 'LOADING' && fetchState !== 'ERROR' && (
         <LoadMore loading={fetchState === 'LOADING'} onLoadMore={onLoadMore} />
       )}
-
-      {/* {fetchState !== 'LOADING' && !moreAvailable && (
-        <div className='list-end'>
-          That's all. Change your filters to find more.
-        </div>
-      )} */}
     </div>
   )
 }

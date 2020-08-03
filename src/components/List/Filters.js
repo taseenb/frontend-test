@@ -17,9 +17,6 @@ function Filters ({ clientFilters, apiParams, cleared }) {
   const { openNow, price } = clientFilters
   const { categories } = apiParams
 
-  // const onUpdateClientFilters = newFilter =>
-  //   dispatch(updateClientFilters(newFilter))
-
   /**
    * Update client filters (open now, price)
    * @param {object} newFilter New key and value
