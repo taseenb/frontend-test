@@ -12,7 +12,7 @@ function filterPrice (price, itemPrice) {
   return !price || (typeof itemPrice === 'string' && price === itemPrice.length)
 }
 
-function Results ({ items, error, fetchState, clientFilters }) {
+function Results ({ items, error, fetchState, clientFilters, moreAvailable }) {
   const { openNow, price } = clientFilters
 
   const filteredItems = Array.isArray(items)
@@ -27,7 +27,7 @@ function Results ({ items, error, fetchState, clientFilters }) {
       })
     : null
 
-  const hiddenItemsCount = Array.isArray(items)
+  const hiddenCount = Array.isArray(items)
     ? items.length - filteredItems.length
     : 0
 
@@ -36,13 +36,13 @@ function Results ({ items, error, fetchState, clientFilters }) {
       <div className='list-results-header'>
         <h2>All Restaurants</h2>
 
-        {hiddenItemsCount > 0 && (
+        {hiddenCount > 0 && (
           <div className='list-results-message'>
             <span className='icon'>&#9432;</span>
 
             <span className='label'>
-              Check your filters! {hiddenItemsCount} resturant
-              {hiddenItemsCount > 1 ? 's were' : ' was'} filtered out.
+              Check your filters! At least {hiddenCount} resturant
+              {hiddenCount > 1 ? 's were' : ' was'} filtered out.
             </span>
           </div>
         )}
@@ -55,7 +55,12 @@ function Results ({ items, error, fetchState, clientFilters }) {
           ))}
         </div>
       ) : fetchState === 'LOADING' ? null : (
-        <div className='list-results-nothing'>No items found.</div>
+        <div className='list-results-nothing'>
+          No restaurants matching your search criteria were found.{' '}
+          {/* {hiddenCount
+            ? `${hiddenCount} ${hiddenCount > 1 ? 'were' : 'was'} filtered out.`
+            : ''} */}
+        </div>
       )}
 
       {fetchState === 'LOADING' && <LoadingAnimation show withContainer />}

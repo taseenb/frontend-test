@@ -108,6 +108,7 @@ function List () {
         fetchState={fetchState}
         error={error}
         items={items}
+        moreAvailable={moreAvailable}
       />
 
       {moreAvailable && fetchState !== 'LOADING' && fetchState !== 'ERROR' && (
