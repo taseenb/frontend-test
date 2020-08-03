@@ -44,18 +44,23 @@ function List () {
   // console.log(apiParams, clientFilters, items)
 
   /**
-   * Update the items store and availability every time data from Yelp changes
+   * Update the items store every time data from Yelp changes
    */
   useEffect(() => {
-    if (data) {
-      setMoreAvailable(items.length < data.total)
-    }
-
     if (data && data.businesses) {
       const { offset, categories, limit } = apiParams
       dispatch(addItems({ items: data.businesses, offset, limit, categories }))
     }
   }, [data])
+
+  /**
+   * Updates items availability information (based on th "total" value returned by Yelp)
+   */
+  useEffect(() => {
+    if (data) {
+      setMoreAvailable(items.length < data.total)
+    }
+  }, [items])
 
   /**
    * Test whether filters were cleared (default values)
@@ -109,11 +114,11 @@ function List () {
         <LoadMore loading={fetchState === 'LOADING'} onLoadMore={onLoadMore} />
       )}
 
-      {fetchState !== 'LOADING' && !moreAvailable && (
+      {/* {fetchState !== 'LOADING' && !moreAvailable && (
         <div className='list-end'>
           That's all. Change your filters to find more.
         </div>
-      )}
+      )} */}
     </div>
   )
 }
