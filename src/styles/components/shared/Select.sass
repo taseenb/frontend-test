@@ -28,6 +28,13 @@
     border-bottom: 1px solid $disabledTextColor
     width: 100%
 
+  // Scrollable
+  &.scrollable
+    .custom-options
+      max-height: 300px
+      overflow-y: scroll
+      overflow-x: hidden
+
   .custom-options
     pointer-events: none
     position: absolute
@@ -42,10 +49,6 @@
     opacity: 0
     visibility: hidden
     z-index: 2
-    // Scrollable
-    max-height: 300px
-    overflow-y: scroll
-    overflow-x: hidden
 
   .custom-option
     position: relative

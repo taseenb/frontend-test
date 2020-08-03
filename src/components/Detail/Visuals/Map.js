@@ -11,8 +11,6 @@ function formatAddress (displayAddress) {
 }
 
 export default function Map ({ coordinates, location }) {
-  console.log(coordinates, location)
-
   const address = formatAddress(location.display_address)
 
   return (

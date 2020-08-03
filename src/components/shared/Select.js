@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-function Select ({ triggerLabel, options, onChange, className }) {
+function Select ({ triggerLabel, options, onChange, scrollable, className }) {
   const [open, setOpen] = useState(false)
   const [selectedLabel, setSelectedLabel] = useState(null)
 
@@ -25,7 +25,11 @@ function Select ({ triggerLabel, options, onChange, className }) {
       className={`custom-select-wrapper ${className || ''}`}
       onClick={toggle}
     >
-      <div className={`custom-select ${open ? 'open' : ''}`}>
+      <div
+        className={`custom-select ${scrollable ? 'scrollable' : ''} ${
+          open ? 'open' : ''
+        }`}
+      >
         <div className='custom-select-trigger'>
           <span>{selectedLabel || triggerLabel}</span>
           <div className='arrow' />

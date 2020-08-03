@@ -31,6 +31,7 @@ function Category ({ selected, onChange }) {
         options={filteredOptions}
         className='category-filter-select'
         onChange={onSelectChange}
+        scrollable
       />
     </div>
   )
