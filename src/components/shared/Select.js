@@ -31,7 +31,11 @@ function Select ({ triggerLabel, options, onChange, scrollable, className }) {
         }`}
       >
         <div className='custom-select-trigger'>
-          <span>{selectedLabel || triggerLabel}</span>
+          <span
+            className={selectedLabel !== triggerLabel ? 'user-selected' : ''}
+          >
+            {selectedLabel || triggerLabel}
+          </span>
           <div className='arrow' />
         </div>
         <div className='custom-options'>

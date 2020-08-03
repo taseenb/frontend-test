@@ -8,7 +8,7 @@ export default function Status ({ openNow, onChange }) {
       onClick={() => onChange({ openNow: !openNow })}
     >
       <Radio checked={openNow} />
-      <span className='label'>Open Now</span>
+      <span className={`label ${openNow ? 'checked' : ''}`}>Open Now</span>
     </div>
   )
 }
