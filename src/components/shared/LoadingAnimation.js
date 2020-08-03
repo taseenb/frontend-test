@@ -12,10 +12,11 @@ function getDashoffsetFromValue (circumference, progress) {
 const LoadingAnimation = ({
   className = '',
   show = false,
-  radius = 24,
+  radius = 32,
   deg = 90,
   size = 32,
-  withContainer
+  withContainer,
+  fullscreen
 }) => {
   const circumference = 2 * Math.PI * radius
   const arc = deg / 360 // 0 to 1
@@ -23,24 +24,7 @@ const LoadingAnimation = ({
   const showClass = show ? 'show' : ''
 
   const Anim = (
-    <span
-      className={`loading-animation ${className} ${showClass}`}
-      // onDoubleClick={e => {
-      //   const showing = e.currentTarget.classList.contains('show')
-      //   const action = showing ? 'remove' : 'add'
-      //   e.currentTarget.classList[action]('show')
-      // }}
-    >
-      {/* <Svg
-        className='svg'
-        width={size}
-        height={size}
-        viewBox={`0 0 ${size * 2} ${size * 2}`}
-        style={{
-          width: size,
-          height: size
-        }}
-      > */}
+    <span className={`loading-animation ${className} ${showClass}`}>
       <svg
         className='svg'
         style={{
@@ -50,7 +34,7 @@ const LoadingAnimation = ({
         viewBox={`0 0 ${size * 2} ${size * 2}`}
       >
         <circle
-          className='background'
+          className='circle background'
           cx={size}
           cy={size}
           fill='none'
@@ -63,14 +47,20 @@ const LoadingAnimation = ({
           r={radius}
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}
-          className='foreground'
+          className='circle foreground'
         />
       </svg>
     </span>
   )
 
-  return withContainer ? (
-    <div className='loading-animation-container'>{Anim}</div>
+  return withContainer || fullscreen ? (
+    <div
+      className={`loading-animation-container ${
+        fullscreen ? 'fullscreen' : ''
+      }`}
+    >
+      {Anim}
+    </div>
   ) : (
     Anim
   )

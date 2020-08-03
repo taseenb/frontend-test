@@ -1,17 +1,6 @@
 @import ./vars
 @import ./reset
 
-html
-  font-size: $defaultFontSize * 0.75
-
-  @media (min-width: $md)
-    font-size: $defaultFontSize
-
-body
-  background-color: white
-  font-family: $defaultFontFamily
-  color: $defaultFontColor
-
 // Layout helpers
 @import ./layout/row
 
@@ -31,3 +20,15 @@ body
 @import ./components/shared/Loading
 @import ./components/shared/LoadingAnimation
 @import ./components/shared/Button
+
+html
+  font-size: $defaultFontSize * 0.75
+
+  @media (min-width: $md)
+    font-size: $defaultFontSize
+
+body
+  background-color: white
+  font-family: $defaultFontFamily
+  color: $defaultFontColor
+  font-weight: 300

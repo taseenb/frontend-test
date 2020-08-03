@@ -15,6 +15,10 @@
     line-height: 38px
     vertical-align: middle
 
+    &.fullscreen
+      height: 100vh
+      padding: 0
+
   &.show
     opacity: 1
 
@@ -24,13 +28,13 @@
     width: 2rem
     height: 2rem
 
-    circle
+    .circle
       stroke-width: 0.5rem
 
       &.foreground
         stroke: $dark-blue
         animation-name: spin
-        animation-duration: 1s
+        animation-duration: 0.8s
         animation-iteration-count: infinite
         animation-timing-function: linear
         transform-origin: center center

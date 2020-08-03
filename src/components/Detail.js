@@ -14,7 +14,7 @@ function Detail ({ location, match }) {
   const { state, error = {}, data } = useYelpDetails(id)
 
   if (state === 'LOADING') {
-    return <LoadingAnimation show withContainer />
+    return <LoadingAnimation show fullscreen />
   }
 
   if (state === 'ERROR') {

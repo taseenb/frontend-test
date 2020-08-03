@@ -1,3 +1,8 @@
+/**
+ * Add restaurnts to the right category when fetched from Yelp's API
+ * @param {object} state
+ * @param {object} payload
+ */
 export const addItems = (state, payload) => {
   const { items, offset, limit, categories } = payload
 
@@ -14,8 +19,6 @@ export const addItems = (state, payload) => {
     // REPLACE the new items depending on offset and limit
     newState[cat].splice(offset, limit, ...items)
   }
-
-  console.log(newState)
 
   return newState
 }

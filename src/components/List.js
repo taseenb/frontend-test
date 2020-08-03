@@ -47,7 +47,6 @@ function List () {
    * Update the items store and availability every time data from Yelp changes
    */
   useEffect(() => {
-    console.log('NEW DATA?')
     if (data) {
       setMoreAvailable(items.length < data.total)
     }

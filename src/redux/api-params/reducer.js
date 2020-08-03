@@ -4,14 +4,13 @@ export const INITIAL_STATE = Object.freeze({
   location: 'Las+Vegas',
   term: 'restaurants',
   offset: 0,
-  limit: 20, // default 20, max 50
+  limit: 8, // default 20, max 50
   categories: ''
 })
 
 const apiParamsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ApiParamsActionTypes.UPDATE_API_PARAMS:
-      console.log(state)
       return {
         ...state,
         ...action.payload
