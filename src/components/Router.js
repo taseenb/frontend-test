@@ -11,7 +11,7 @@ export default function Router () {
       <Switch>
         <Route exact path='/restaurant/:id' component={Detail} />
         <Route exact path='/' component={List} />
-        <Route path='*' component={HttpError} />
+        <Route path='*' render={() => <HttpError fullscreen />} />
       </Switch>
     </BrowserRouter>
   )
