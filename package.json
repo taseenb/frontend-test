@@ -11,9 +11,10 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "npm run build && node server/index.js",
+    "test:watch": "yarn test --watch",
+    "start": "yarn run build && node server/index.js",
     "build": "NODE_ENV=production webpack",
-    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev": "concurrently \"yarn run dev:server\" \"yarn run dev:client\"",
     "dev:client": "NODE_ENV=development webpack-dev-server",
     "dev:server": "DEBUG=server:* nodemon server/index.js",
     "kill": "sh kill.sh 8080"
