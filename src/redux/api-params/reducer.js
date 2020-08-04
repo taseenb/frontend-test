@@ -1,4 +1,5 @@
-import { ApiParamsActionTypes } from './types'
+import types from './action-types'
+const { RESET_API_PARAMS, UPDATE_API_PARAMS } = types
 
 export const INITIAL_STATE = Object.freeze({
   location: 'Las+Vegas',
@@ -10,13 +11,13 @@ export const INITIAL_STATE = Object.freeze({
 
 const apiParamsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case ApiParamsActionTypes.UPDATE_API_PARAMS:
+    case UPDATE_API_PARAMS:
       return {
         ...state,
         ...action.payload
       }
 
-    case ApiParamsActionTypes.RESET_API_PARAMS:
+    case RESET_API_PARAMS:
       return INITIAL_STATE
 
     default:

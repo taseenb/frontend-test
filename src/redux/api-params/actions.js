@@ -1,10 +1,11 @@
-import { ApiParamsActionTypes } from './types'
+import types from './action-types'
+const { RESET_API_PARAMS, UPDATE_API_PARAMS } = types
 
 /**
  * Reset client filters to default value
  */
 export const resetApiParams = () => {
-  return { type: ApiParamsActionTypes.RESET_API_PARAMS }
+  return { type: RESET_API_PARAMS }
 }
 
 /**
@@ -12,5 +13,5 @@ export const resetApiParams = () => {
  * @param {object} filter Key/Value pair of the filter to be updated
  */
 export const updateApiParams = filter => {
-  return { type: ApiParamsActionTypes.UPDATE_API_PARAMS, payload: filter }
+  return { type: UPDATE_API_PARAMS, payload: filter }
 }

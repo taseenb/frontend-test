@@ -1,4 +1,6 @@
-export const ClientFiltersActionTypes = {
+const types = {
   RESET_CLIENT_FILTERS: 'RESET_CLIENT_FILTERS',
   UPDATE_CLIENT_FILTERS: 'UPDATE_CLIENT_FILTERS'
 }
+
+export default types
