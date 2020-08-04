@@ -84,7 +84,7 @@ function Select ({ triggerLabel, options, onChange, scrollable, className }) {
 
 Select.propTypes = {
   triggerLabel: PropTypes.string,
-  options: PropTypes.object,
+  options: PropTypes.array,
   onChange: PropTypes.func,
   scrollable: PropTypes.bool,
   className: PropTypes.string
