@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const cache = {}
 
-const API_STATE = {
+export const API_STATE = {
   LOADING: 'LOADING',
   SUCCESS: 'SUCCESS',
   ERROR: 'ERROR'
@@ -54,7 +54,7 @@ function useFetch (url) {
           if (!axios.isCancel(error)) {
             setResponse({
               state: API_STATE.ERROR,
-              error: error.response ? error.response : true,
+              error: error.response ? error.response : {},
               data: null
             })
           }
