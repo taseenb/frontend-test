@@ -1,4 +1,6 @@
 module.exports = function (api) {
+  const isTest = api.env('test')
+
   api.cache(true)
 
   const presets = [
@@ -7,7 +9,8 @@ module.exports = function (api) {
       '@babel/preset-env',
       {
         useBuiltIns: 'entry',
-        corejs: 3
+        corejs: 3,
+        targets: { node: process.versions.node }
       }
     ]
   ]
