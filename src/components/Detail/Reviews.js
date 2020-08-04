@@ -15,7 +15,7 @@ export default function Reviews ({ id, reviewCount }) {
       {state === 'LOADING' && <LoadingAnimation show withContainer />}
 
       {state === 'ERROR' && (
-        <HttpError status={error.status} message={error.statusText} />
+        <HttpError inline status={error.status} message={error.statusText} />
       )}
 
       {state !== 'LOADING' &&
