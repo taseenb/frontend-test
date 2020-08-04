@@ -1,9 +1,12 @@
 const path = require('path')
 const fs = require('fs')
 
-const sassVariables = fs.readFileSync(
-  path.resolve(__dirname, '../src/styles/vars.sass'),
-  'utf8'
+const getFileText = filename => fs.readFileSync(filename, 'utf8')
+const sassVariables = getFileText(
+  path.resolve(__dirname, '../src/styles/vars.sass')
+)
+const sassGlobalStyles = getFileText(
+  path.resolve(__dirname, '../src/styles/global.sass')
 )
 
 module.exports = {
@@ -22,7 +25,7 @@ module.exports = {
         {
           loader: 'sass-loader',
           options: {
-            additionalData: sassVariables
+            additionalData: sassVariables + sassGlobalStyles
           }
         }
       ],

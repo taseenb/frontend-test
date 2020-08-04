@@ -1,6 +1,12 @@
 .status
   text-transform: uppercase
   color: $light-gray
+  font-size: 1rem
+  line-height: 1rem
+
+  > span
+    display: inline-flex
+    vertical-align: middle
 
   &:before
     content: ''
@@ -8,6 +14,7 @@
     height: 0.5rem
     border-radius: 100%
     display: inline-flex
+    vertical-align: middle
     margin-right: 0.5rem
 
   &.open
