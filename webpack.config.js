@@ -10,11 +10,12 @@ const isProd = NODE_ENV === 'production'
 
 // Plugins
 const definePlugin = new webpack.DefinePlugin({
-  IS_PROD: JSON.stringify(isProd)
+  __IS_PROD__: JSON.stringify(isProd),
+  __IS_TEST__: JSON.stringify(false)
 })
 const cleanupPlugin = new CleanWebpackPlugin()
 const htmlPlugin = new HtmlWebpackPlugin({
-  template: './src/static/index.html'
+  template: './src/index.html'
 })
 const miniCssPlugin = new MiniCssExtractPlugin()
 

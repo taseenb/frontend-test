@@ -81,6 +81,10 @@
     "globals": []
   },
   "jest": {
+    "globals": {
+      "__IS_PROD__": true,
+      "__IS_TEST__": true
+    },
     "roots": [
       "<rootDir>/src"
     ],
