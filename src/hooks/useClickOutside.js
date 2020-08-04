@@ -1,14 +1,7 @@
 import { useState, useEffect } from 'react'
 
-/**
- * To detect a click outside an element we must add a listener on the whole document element. Then the main loop goes up the DOM from the clicked target element to find whether an ancestor of the clicked element belongs to the flyout container.
- * @param {HTMLElement} clickedElement
- * @param {HTMLElement} el
- */
-export const isClickOutside = (el, clickedElement, setIsOutside) => {
+const isClickOutside = (el, clickedElement, setIsOutside) => {
   let targetElement = clickedElement
-
-  console.log('click')
 
   do {
     if (targetElement === el) {
@@ -23,6 +16,14 @@ export const isClickOutside = (el, clickedElement, setIsOutside) => {
   setIsOutside(true)
 }
 
+/**
+ * To detect a click outside an HTMLElement (el) we must add a
+ * listener on the document element.
+ * Then we loop traverse the DOM up from the clicked element to find whether
+ * an ancestor of the clicked element belongs to el.
+ * @param {HTMLElement} el
+ * @param {boolean} active Enable/disable the listener
+ */
 export default function useClickOutside (el, active) {
   const [isOutside, setIsOutside] = useState(active)
 
