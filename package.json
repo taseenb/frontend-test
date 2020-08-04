@@ -17,13 +17,15 @@
     "dev": "concurrently \"yarn run dev:server\" \"yarn run dev:client\"",
     "dev:client": "NODE_ENV=development webpack-dev-server",
     "dev:server": "DEBUG=server:* nodemon server/index.js",
-    "kill": "sh kill.sh 8080"
+    "kill": "sh kill.sh 8080",
+    "storybook": "start-storybook"
   },
   "dependencies": {
     "@babel/core": "^7.11.0",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
+    "@storybook/react": "^5.3.19",
     "@testing-library/dom": "^7.21.7",
     "@testing-library/jest-dom": "^5.11.2",
     "@testing-library/react": "^10.4.7",
