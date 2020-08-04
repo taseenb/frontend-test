@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export default function HttpError ({
   message = 'Page not found',
@@ -22,4 +23,11 @@ export default function HttpError ({
       </div>
     </div>
   )
+}
+
+HttpError.propTypes = {
+  message: PropTypes.string,
+  status: PropTypes.number,
+  fullscreen: PropTypes.bool,
+  inline: PropTypes.bool
 }

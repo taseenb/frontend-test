@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import PropTypes from 'prop-types'
 
 function getStar (rating, i) {
   if (rating - i === 0.5) {
@@ -20,6 +21,10 @@ function Stars ({ rating }) {
       {str}
     </div>
   )
+}
+
+Stars.propTypes = {
+  rating: PropTypes.number
 }
 
 export default memo(Stars)

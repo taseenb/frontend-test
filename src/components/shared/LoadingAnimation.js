@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 /**
  * Calculates stroke-dashoffset from a value 0 to 1
@@ -64,6 +65,16 @@ const LoadingAnimation = ({
   ) : (
     Anim
   )
+}
+
+LoadingAnimation.propTypes = {
+  className: PropTypes.string,
+  show: PropTypes.bool,
+  radius: PropTypes.number,
+  deg: PropTypes.number,
+  size: PropTypes.number,
+  withContainer: PropTypes.bool,
+  fullscreen: PropTypes.bool
 }
 
 export default LoadingAnimation

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export default function Button ({
   className = '',
@@ -11,4 +12,11 @@ export default function Button ({
       {children}
     </div>
   )
+}
+
+Button.propTypes = {
+  className: PropTypes.string,
+  onClick: PropTypes.func,
+  disabled: PropTypes.bool,
+  children: PropTypes.any
 }

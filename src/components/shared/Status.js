@@ -1,9 +1,16 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-export default function Status ({ isClosed }) {
+function Status ({ isClosed }) {
   return (
     <div className={`status ${isClosed ? 'closed' : 'open'}`}>
       <span>{isClosed ? 'closed' : 'open now'}</span>
     </div>
   )
 }
+
+Status.propTypes = {
+  isClosed: PropTypes.bool
+}
+
+export default Status

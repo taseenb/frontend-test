@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export default function CatPrice ({ category, price }) {
   return (
@@ -6,4 +7,9 @@ export default function CatPrice ({ category, price }) {
       {category} &middot; {price}
     </div>
   )
+}
+
+CatPrice.propTypes = {
+  category: PropTypes.string,
+  price: PropTypes.string
 }
