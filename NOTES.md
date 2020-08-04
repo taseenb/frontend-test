@@ -20,7 +20,7 @@ The app has a server and a client:
 
 All the server code is in `/server`. It does 2 things:
 
-- It proxies \***\*[Yelp's API](https://www.yelp.com/developers/documentation/v3)\*\*** at `/api`. The entire Yelp's API is accesible from that route by simply adding Yelp's endpoints.
+- It proxies **[Yelp's API](https://www.yelp.com/developers/documentation/v3)** at `/api`. The entire Yelp's API is accesible from that route by simply adding Yelp's endpoints.
 - Any other route `*` serves a `index.html` file that loads the css and js: the client alone manages the routing.
 
 ### Client
