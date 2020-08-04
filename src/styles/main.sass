@@ -1,6 +1,9 @@
 @import ./vars
 @import ./reset
 
+// Global
+@import ./global
+
 // Layout helpers
 @import ./layout/row
 
@@ -20,15 +23,3 @@
 @import ./components/shared/Loading
 @import ./components/shared/LoadingAnimation
 @import ./components/shared/Button
-
-html
-  font-size: $defaultFontSize * 0.75
-
-  @media (min-width: $md)
-    font-size: $defaultFontSize
-
-body
-  background-color: white
-  font-family: $defaultFontFamily
-  color: $defaultFontColor
-  font-weight: 300
