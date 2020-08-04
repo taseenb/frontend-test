@@ -15,7 +15,7 @@ function Hero ({
 }) {
   return (
     <div className='list-hero hero row' data-testid='hero'>
-      {headline && <h1>{headline}</h1>}
+      {headline && <h1 data-testid='headline'>{headline}</h1>}
 
       {sub && <p className='copy'>{sub}</p>}
 

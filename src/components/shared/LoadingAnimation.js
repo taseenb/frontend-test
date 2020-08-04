@@ -25,7 +25,7 @@ const LoadingAnimation = ({
   const showClass = show ? 'show' : ''
 
   const Anim = (
-    <span className={`loading-animation ${className} ${showClass}`}>
+    <span className={`loading-animation ${className} ${showClass}`} data-testid='loading'>
       <svg
         className='svg'
         style={{

@@ -9,7 +9,7 @@ import Hero from './shared/Hero'
 import HttpError from './shared/HttpError'
 import LoadingAnimation from './shared/LoadingAnimation'
 
-function Detail ({ location, match }) {
+function Detail ({ match }) {
   const { id } = match.params
   const { state, error = {}, data } = useYelpDetails(id)
 
@@ -39,7 +39,7 @@ function Detail ({ location, match }) {
   } = data
 
   return (
-    <div className='detail'>
+    <div className='detail' data-testid='detail'>
       <Hero
         headline={name}
         rating={rating}

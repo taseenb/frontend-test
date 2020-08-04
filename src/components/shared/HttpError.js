@@ -8,7 +8,7 @@ export default function HttpError ({
   inline
 }) {
   return (
-    <div className={`http-error ${fullscreen && 'fullscreen'}`}>
+    <div className={`http-error ${fullscreen && 'fullscreen'}`} data-testid='http-error'>
       <div>
         {inline ? (
           <p>

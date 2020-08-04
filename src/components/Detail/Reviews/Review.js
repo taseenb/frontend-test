@@ -6,12 +6,9 @@ import Content from './Content'
 
 function Review ({ id, url, text, rating, time_created: timeCreated, user }) {
   return (
-    <div className='review'>
+    <div className='review' data-testid='review'>
       <User {...user} date={timeCreated} />
-
-
       <Content rating={rating} text={text} />
-
     </div>
   )
 }
