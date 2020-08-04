@@ -20,7 +20,8 @@ The app has a server and a client:
 
 All the server code is in `/server`. It does 2 things:
 
-- It proxies **[Yelp's API](https://www.yelp.com/developers/documentation/v3)** at `/api`. The entire Yelp's API is accesible from that route by simply adding Yelp's endpoints.
+- It proxies the **[Yelp's API](https://www.yelp.com/developers/documentation/v3)** at `/api`. The entire Yelp's API is accesible from that route by simply adding Yelp's endpoints. For example: **[Try API](https://frontend-test-2020-08-03.herokuapp.com/api/businesses/QXV3L_QFGj8r6nWX2kS2hA)**
+
 - Any other route `*` serves a `index.html` file that loads the css and js: the client alone manages the routing.
 
 ### Client
@@ -35,9 +36,9 @@ The client is based on **React** and has the following features:
 
 ```
 const { state, error, data } = useYelpSearch(apiParams)
-```
 
-When `apiParams` changes, new data gets fetched from Yelp or from the cache.
+// When `apiParams` change, new data gets fetched from Yelp (or from the cache)
+```
 
 - **Styles** All styles are coded in SASS. I used:
 
