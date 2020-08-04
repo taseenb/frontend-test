@@ -55,7 +55,7 @@ function Results ({ items, error, fetchState, clientFilters, moreAvailable }) {
           ))}
         </div>
       ) : fetchState === 'LOADING' ? null : (
-        <div className='list-results-nothing'>
+        <div className='list-results-nothing' data-testid='nothing-found'>
           No restaurants matching your search criteria were found.{' '}
           {/* {hiddenCount
             ? `${hiddenCount} ${hiddenCount > 1 ? 'were' : 'was'} filtered out.`

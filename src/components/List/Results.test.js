@@ -10,8 +10,7 @@ import Results from './Results'
 const items = data.businesses
 const len = items.length
 
-// The json file contains:
-// items (8)
+// The json file contains 8 restaurants:
 // is_closed === true (3)
 // is_closed === false (5)
 // price === "$" (1)
@@ -49,7 +48,7 @@ describe('<Results />', () => {
     }
 
     clientFilters.price = 1
-    const { rerender, getAllByTestId } = render(
+    const { rerender, getAllByTestId, getAllByText } = render(
       <Results {...props} clientFilters={clientFilters} />
     )
     expect(getAllByTestId('list-item')).toHaveLength(1)
@@ -61,6 +60,10 @@ describe('<Results />', () => {
     clientFilters.price = 3
     rerender(<Results {...props} clientFilters={clientFilters} />)
     expect(getAllByTestId('list-item')).toHaveLength(2)
+
+    clientFilters.price = 4
+    rerender(<Results {...props} clientFilters={clientFilters} />)
+    expect(getAllByTestId('nothing-found')).toHaveLength(1)
   })
 
   it('applies Open Now filter (client)', () => {
