@@ -1,21 +1,28 @@
 import React from 'react'
-import { shallow, mount, render } from 'enzyme'
+import { render } from '@testing-library/react'
 
 import Stars from './Stars'
 
 describe('<Stars />', () => {
-  it('renders <Stars />', () => {
-    const wrapper = shallow(<Stars rating={2.5} />)
-    expect(wrapper.find('.stars')).toHaveLength(1)
+  it('renders <Stars /> with 5 characters', () => {
+    const { container, getByTestId } = render(<Stars rating={2.5} />)
+
+    expect(getByTestId('stars').textContent).toHaveLength(5)
   })
 
   it('renders the right number of stars and half stars', () => {
-    const wrapper1 = shallow(<Stars rating={2.5} />)
-    const wrapper2 = shallow(<Stars rating={4} />)
-    const wrapper3 = shallow(<Stars rating={0} />)
+    const { getAllByTestId } = render(
+      <>
+        <Stars rating={2.5} />
+        <Stars rating={4} />
+        <Stars rating={0.5} />
+        <Stars rating={0} />
+      </>
+    )
+    const result = ['●●◐○○', '●●●●○', '◐○○○○', '○○○○○']
 
-    expect(wrapper1.text()).toEqual('●●◐○○')
-    expect(wrapper2.text()).toEqual('●●●●○')
-    expect(wrapper3.text()).toEqual('○○○○○')
+    getAllByTestId('stars').forEach((s, i) => {
+      expect(s.textContent).toEqual(result[i])
+    })
   })
 })

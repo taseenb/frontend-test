@@ -25,7 +25,7 @@ export default function Item ({
   const to = `/restaurant/${id}`
 
   return (
-    <div className='list-item'>
+    <div className='list-item' data-testid='list-item'>
       <div className='inner'>
         <Link to={to} className='image-wrapper'>
           <span

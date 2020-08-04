@@ -48,7 +48,7 @@ function Filters ({ clientFilters, apiParams, cleared }) {
   }
 
   return (
-    <div className='list-filters row flex with-separator'>
+    <div className='list-filters row flex with-separator' data-testid='list-filters'>
       <div className='list-filters-wrapper'>
         <div className='main-label'>Filter by:</div>
         <Status openNow={openNow} onChange={onUpdateClientFilters} />

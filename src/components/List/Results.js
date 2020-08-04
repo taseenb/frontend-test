@@ -18,12 +18,12 @@ function Results ({ items, error, fetchState, clientFilters, moreAvailable }) {
   const filteredItems = Array.isArray(items)
     ? items.filter(item => {
         if (
-          !filterOpenNow(openNow, item.is_closed) ||
-          !filterPrice(price, item.price)
+          filterOpenNow(openNow, item.is_closed) &&
+          filterPrice(price, item.price)
         ) {
-          return false
+          return true
         }
-        return true
+        return false
       })
     : null
 
@@ -32,7 +32,7 @@ function Results ({ items, error, fetchState, clientFilters, moreAvailable }) {
     : 0
 
   return (
-    <div className='list-results row'>
+    <div className='list-results row' data-testid='list-results'>
       <div className='list-results-header'>
         <h2>All Restaurants</h2>
 
@@ -49,7 +49,7 @@ function Results ({ items, error, fetchState, clientFilters, moreAvailable }) {
       </div>
 
       {filteredItems && filteredItems.length ? (
-        <div className='list-results-grid'>
+        <div className='list-results-grid' data-testid='results-grid'>
           {filteredItems.map(item => (
             <Item key={item.id} {...item} />
           ))}

@@ -15,7 +15,11 @@ function Stars ({ rating }) {
     str += getStar(rating, i)
   }
 
-  return <div className='stars'>{str}</div>
+  return (
+    <div className='stars' data-testid='stars'>
+      {str}
+    </div>
+  )
 }
 
 export default memo(Stars)

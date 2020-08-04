@@ -1,12 +1,18 @@
 import React from 'react'
-import { shallow, mount, render } from 'enzyme'
+import { render } from '@testing-library/react'
 
 import App from './App'
 
-describe('<App />', () => {
-  it('renders <App />', () => {
-    const wrapper = shallow(<App />)
+// Mock router
+jest.mock('./Router', () => ({
+  __esModule: true,
+  default: jest.fn(() => null)
+}))
 
-    expect(wrapper.find('div#frontend-test')).toHaveLength(1)
+describe('<App />', () => {
+  test('renders without errors', () => {
+    const { container, getByTestId } = render(<App />)
+
+    expect(getByTestId('app')).toHaveProperty('id', 'frontend-test')
   })
 })

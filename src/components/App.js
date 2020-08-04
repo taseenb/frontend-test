@@ -3,7 +3,7 @@ import Router from './Router'
 
 function App () {
   return (
-    <div id='frontend-test'>
+    <div id='frontend-test' data-testid='app'>
       <Router />
     </div>
   )

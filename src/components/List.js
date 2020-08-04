@@ -38,7 +38,7 @@ function List () {
   // Defines if filters are using defaults
   const [filtersCleared, setFiltersCleared] = useState(true)
 
-  // Get resaurants data from Yelp
+  // Fetch resaurants data from Yelp
   const { state: fetchState, error = {}, data } = useYelpSearch(apiParams)
 
   // console.log(apiParams, clientFilters, items)
@@ -90,7 +90,7 @@ function List () {
   }
 
   return (
-    <div className='list'>
+    <div className='list' data-testid='list'>
       <Hero
         headline='Restaurants'
         sub='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
