@@ -2,7 +2,7 @@
   position: relative
   display: flex
   flex-direction: column
-  width: 120px
+  width: 200px
 
   &.open
     .custom-options
@@ -79,7 +79,7 @@
 
     .bullet,
     .label
-      display: inline-block
+      display: inline-flex
       vertical-align: middle
 
     .bullet
@@ -98,6 +98,10 @@
 
         path
           stroke: white
+
+    .label
+      color: $dark-blue
+      padding: 0.5rem
 
   .arrow
     position: relative

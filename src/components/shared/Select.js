@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import PropTypes from 'prop-types'
+
+import useClickOutside from '../../hooks/useClickOutside'
 
 function Select ({ triggerLabel, options, onChange, scrollable, className }) {
   const [open, setOpen] = useState(false)
   const [selectedLabel, setSelectedLabel] = useState(null)
+  const selectEl = useRef(null)
+  const clickedOutside = useClickOutside(selectEl.current, open)
 
   useEffect(() => {
     const selected = options.find(o => o.selected)
-
-    // console.log(options)
 
     if (selected && !selected.default) {
       setSelectedLabel(selected.copy)
@@ -16,6 +19,12 @@ function Select ({ triggerLabel, options, onChange, scrollable, className }) {
     }
   }, [options])
 
+  useEffect(() => {
+    if (clickedOutside && open) {
+      toggle()
+    }
+  }, [clickedOutside])
+
   function toggle () {
     setOpen(!open)
   }
@@ -23,14 +32,14 @@ function Select ({ triggerLabel, options, onChange, scrollable, className }) {
   return (
     <div
       className={`custom-select-wrapper ${className || ''}`}
-      onClick={toggle}
+      // onClick={toggle}
     >
       <div
         className={`custom-select ${scrollable ? 'scrollable' : ''} ${
           open ? 'open' : ''
         }`}
       >
-        <div className='custom-select-trigger'>
+        <div className='custom-select-trigger' ref={selectEl} onClick={toggle}>
           <span
             className={selectedLabel !== triggerLabel ? 'user-selected' : ''}
           >
@@ -44,7 +53,7 @@ function Select ({ triggerLabel, options, onChange, scrollable, className }) {
               key={option.value + i}
               className={`custom-option ${option.selected ? 'selected' : ''}`}
               data-value={option.value}
-              onClick={e => onChange(option.value)}
+              onClick={onChange ? e => onChange(option.value) : null}
             >
               <span className='bullet'>
                 <svg
@@ -71,6 +80,14 @@ function Select ({ triggerLabel, options, onChange, scrollable, className }) {
       </div>
     </div>
   )
+}
+
+Select.propTypes = {
+  triggerLabel: PropTypes.string,
+  options: PropTypes.object,
+  onChange: PropTypes.func,
+  scrollable: PropTypes.bool,
+  className: PropTypes.string
 }
 
 export default Select
