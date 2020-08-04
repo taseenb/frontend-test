@@ -71,7 +71,8 @@ const { state, error, data } = useYelpSearch(apiParams)
 ## Optimisations
 
 - **Basic caching** No url is fetched twice, unless the page is reloaded. See: [useFetch](/src/hooks/useFetch.js)
-- **Static categories** While Yelp offers a `categories` endpoint that returns a massive json, I decided to create a much smaller, static json file that only includes restaurants data. It gets compiled with the application.
+- **Categories cache** Data fetched from Yelp is stored in different categories so we never need to request the same data twice.
+- **Static categories** While Yelp offers a `categories` endpoint that returns a massive json, I use a much smaller, static json file that only includes restaurants data.
 
 ## Possible improvements
 
