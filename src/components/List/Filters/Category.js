@@ -1,7 +1,7 @@
 import React from 'react'
 import Select from '../../shared/Select'
 
-import restaurants from './categories.json'
+import restaurants from '../../../data/categories.json'
 
 // Get options array from Yelp categories json
 const defaultOptions = [

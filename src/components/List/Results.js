@@ -12,7 +12,14 @@ function filterPrice (price, itemPrice) {
   return !price || (typeof itemPrice === 'string' && price === itemPrice.length)
 }
 
-function Results ({ items, error, fetchState, clientFilters, moreAvailable }) {
+function Results ({
+  items,
+  error,
+  fetchState,
+  clientFilters,
+  moreAvailable,
+  categoryTitle
+}) {
   const { openNow, price } = clientFilters
 
   const filteredItems = Array.isArray(items)
@@ -34,14 +41,14 @@ function Results ({ items, error, fetchState, clientFilters, moreAvailable }) {
   return (
     <div className='list-results row' data-testid='list-results'>
       <div className='list-results-header'>
-        <h2>All Restaurants</h2>
+        <h2>{categoryTitle || 'All'} Restaurants</h2>
 
         {hiddenCount > 0 && (
           <div className='list-results-message'>
             <span className='icon'>&#9432;</span>
 
             <span className='label'>
-              Check your filters! At least {hiddenCount} resturant
+              Check your filters! {hiddenCount} resturant
               {hiddenCount > 1 ? 's were' : ' was'} filtered out.
             </span>
           </div>

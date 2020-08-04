@@ -20,6 +20,9 @@ import { addItems } from '../redux/restaurants/actions'
 import { INITIAL_STATE as defaultApiParams } from '../redux/api-params/reducer'
 import { INITIAL_STATE as defaultClientFilters } from '../redux/client-filters/reducer'
 
+// Categories
+import categoriesData from '../data/categories.json'
+
 function List () {
   const dispatch = useDispatch()
 
@@ -30,6 +33,8 @@ function List () {
   // Get restaurants
   const { categories } = apiParams
   const items = useSelector(selectRestaurants(categories || 'all'))
+  const categoryTitle = (categoriesData.find(c => c.alias === categories) || {})
+    .title
 
   // Defines if there are more items available with the current
   // server side filters (based on Yelp API total value)
@@ -104,6 +109,7 @@ function List () {
       />
 
       <Results
+        categoryTitle={categoryTitle}
         clientFilters={clientFilters}
         fetchState={fetchState}
         error={error}
