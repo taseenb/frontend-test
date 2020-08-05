@@ -6,6 +6,13 @@ Deployed application: **[DEMO](https://frontend-test-2020-08-03.herokuapp.com/)*
 
 To install: `npm i` or `yarn`
 
+Create a `.env` file in the root with Yelp's API credentials:
+
+```
+ClientID=YOUR_ID
+APIKey=YOUR_KEY
+```
+
 To run the tests: `npm test` or `yarn test`
 
 To run the production server locally: `npm start` or `yarn start` and open the browser at **[localhost:8080](http://localhost:8080)**
