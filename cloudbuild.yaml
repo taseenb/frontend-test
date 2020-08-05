@@ -1,0 +1,14 @@
+# INSTALL
+steps:
+
+# DEPLOY to App Engine - Default service
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['app', 'deploy', 'app.yaml']
+
+
+# GLOBAL OPTIONS
+options:
+  env: ['NODE_ENV=production']
+  logStreamingOption: STREAM_ON
+  logging: LEGACY
+
