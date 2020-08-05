@@ -61,7 +61,7 @@ const { state, error, data } = useYelpSearch(apiParams)
 
 - **Filters** There are two types of filters stored with Redux: client and server filters (referred as `apiParams` in the code). This is how they work:
 
-  - When user interacts with the UI, the filter parameters get saved in the store.
+  - When the user interacts with the UI, the filter parameters get saved in the store.
 
   - In the case of "client" filters, a render gets triggered immediately via props passed to the `Results` component.
 
