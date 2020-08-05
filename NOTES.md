@@ -64,9 +64,10 @@ const { state, error, data } = useYelpSearch(apiParams)
 
   - The update in the store will trigger a new render via selector. See: [List.js](/src/components/List.js)
 
-- **Automated testing** I have included unit tests for the following:
+- **Automated testing** I included unit tests for the following:
   - Reducers: all reducers have unit tests that emulate changes in the filters and data.
   - React components and hooks: the most important components are fully rendered with mock data and filters, also asynchronously (useEffect updates).
+  - Jest and Testing Library were used.
 
 ## Optimisations
 
