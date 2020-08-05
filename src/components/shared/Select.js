@@ -1,14 +1,41 @@
 import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 
-import useClickOutside from '../../hooks/useClickOutside'
-
 function Select ({ triggerLabel, options, onChange, scrollable, className }) {
   const [open, setOpen] = useState(false)
   const [selectedLabel, setSelectedLabel] = useState(null)
   const selectEl = useRef(null)
-  const clickedOutside = useClickOutside(selectEl.current, open)
 
+  // Traverse the DOM up to the document root to determine
+  // if the click happened inside the dropdown
+  const isClickOutside = (el, clickedElement) => {
+    let targetElement = clickedElement
+    do {
+      if (targetElement === el) {
+        // Click is inside: do nothing
+        return
+      }
+      targetElement = targetElement.parentNode
+    } while (targetElement)
+
+    // Click is outside: close
+    setOpen(false)
+  }
+
+  // Close the dropdown if user clicks outside
+  useEffect(() => {
+    const handler = e => isClickOutside(selectEl, e.target)
+    const add = () => document.addEventListener('click', handler)
+    const remove = () => document.removeEventListener('click', handler)
+    if (open) {
+      add()
+    } else {
+      remove()
+    }
+    return remove
+  }, [open])
+
+  // Update label based on the selected option
   useEffect(() => {
     const selected = options.find(o => o.selected)
 
@@ -19,21 +46,13 @@ function Select ({ triggerLabel, options, onChange, scrollable, className }) {
     }
   }, [options])
 
-  useEffect(() => {
-    if (clickedOutside && open) {
-      toggle()
-    }
-  }, [clickedOutside])
-
+  // Toggle open/close (click handler)
   function toggle () {
     setOpen(!open)
   }
 
   return (
-    <div
-      className={`custom-select-wrapper ${className || ''}`}
-      // onClick={toggle}
-    >
+    <div className={`custom-select-wrapper ${className || ''}`}>
       <div
         className={`custom-select ${scrollable ? 'scrollable' : ''} ${
           open ? 'open' : ''
