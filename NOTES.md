@@ -61,15 +61,15 @@ const { state, error, data } = useYelpSearch(apiParams)
 
 - **Filters** There are two types of filters stored with Redux: client and server filters (referred as `apiParams` in the code). This is how they work:
 
-  - When user interacts with the UI, the filter parameters gets saved via dispatch/action in the store.
+  - When user interacts with the UI, the filter parameters get saved in the store.
 
-  - In the case of "client" filters, a render is immediately triggered via props passed down to the `Results` component.
+  - In the case of "client" filters, a render gets triggered immediately via props passed to the `Results` component.
 
-  - In the case of "server" filters (api parameters), the new data is fetched or taken from the cache.
+  - In the case of "server" filters (api parameters), new data gets fetched or taken from the cache.
 
-  - The new data will be appropriately saved in the store (based on category and offset).
+  - Then the new data gets saved in the store (based on category and offset).
 
-  - The update in the store will trigger a new render via selector. See: [List.js](/src/components/List.js)
+  - The update in the store triggers a new render. See: [List.js](/src/components/List.js)
 
 - **Automated testing** I included unit tests for the following:
   - Reducers: all reducers have unit tests that emulate changes in the filters and data.
