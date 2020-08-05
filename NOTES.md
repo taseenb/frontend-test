@@ -82,7 +82,7 @@ const { state, error, data } = useYelpSearch(apiParams)
 
 - **Selectors** The client filters for this test app are trivial so they can be easily performed inside any React component, but for more complex filters it would be better to create new selectors.
 
-- **Integration tests** In the real world - and with more complex filters or interactions - we would want to have integration tests and mimic user actions on the filters and the UI.
+- **E2E + Integration tests** In the real world - and with more complex filters or interactions - we would want to have E2E and more integration tests to mimic user actions on the filters and the UI.
 
 - **Mobile** The app is usable on mobile but it needs some work to actually look and feel like the [design](https://www.figma.com/file/4MqQhKPsnKetTud9tm6kDY/Superformula-FE-test-264388d?node-id=0%3A1).
 
