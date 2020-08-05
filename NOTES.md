@@ -94,4 +94,4 @@ const { state, error, data } = useYelpSearch(apiParams)
 
 - **Mobile** The app is usable on mobile but it needs some work to actually look and feel like the [design](https://www.figma.com/file/4MqQhKPsnKetTud9tm6kDY/Superformula-FE-test-264388d?node-id=0%3A1).
 
-- **A back button!** There is no way to go back in the design. Adding navigation UI (breadcrumbs or simmply a back link) would be good!
+- **A back button!** There is no way to go back in the design. Adding navigation UI (breadcrumbs or simply a back link) would be good!
