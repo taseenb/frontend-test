@@ -49,11 +49,11 @@ const { state, error, data } = useYelpSearch(apiParams)
 
 - **Styles** All styles are coded in SASS. I used:
 
-  - Variables (`vars.sass`) defines colors, sizes and breakpoints.
+  - Variables ([vars.sass](/src/styles/vars.sass)) defines colors, sizes and breakpoints.
 
-  - A simple reset (`reset.sass`) defines cross-browser defaults.
+  - A simple reset ([reset.sass](/src/styles/reset.sass)) defines cross-browser defaults.
 
-  - Globals (`global.sass`) sets up body and html.
+  - Globals ([global.sass](/src/styles/global.sass)) sets up body and html.
 
   - The [components](/src/styles/components) folder mirrors the React components.
 
